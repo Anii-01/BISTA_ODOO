@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="confirm_id_form_inherit" model="ir.ui.view">
+        <field name="name">model.extend.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+
+                    <div class="oe_title">
+                        <h1>
+                            <field name="priority" widget="priority" class="mr-3"/>
+                        </h1>
+                    </div>
+
+                    <!-- <field name="confirm_user_id"/> -->
+                    
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+</odoo>

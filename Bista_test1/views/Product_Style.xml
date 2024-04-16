@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <record id="Product_Style_tree" model="ir.ui.view">
+        <field name="name">product.style.tree</field>
+        <field name="model">product.style</field>
+        <field name="arch" type="xml">
+            <tree create="1" edit="bottom" delete="1" multi_edit="1" string="Chart of accounts">
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+    
+
+    <record id="Product_Style_form" model="ir.ui.view">
+        <field name="name">product.style.form</field>
+        <field name="model">product.style</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="priority" widget="priority" class="mr-5"/>
+                        </h1>
+
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                    </group>
+                </sheet>
+                
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_product_style" model="ir.actions.act_window">
+        <field name="name">ProductStyles</field>
+        <field name="res_model">product.style</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new BACS Direct Debit Instruction.
+            </p>
+        </field>
+    </record>
+
+
+    <record id="action_business_category" model="ir.actions.act_window">
+        <field name="name">BusinessCategory</field>
+        <field name="res_model">product.style</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new BACS Direct Debit Instruction.
+            </p>
+        </field>
+    </record>
+
+</odoo>

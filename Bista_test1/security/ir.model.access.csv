@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+Bista_test1.access_product_style,access_product_style,Bista_test1.model_product_style,base.group_user,1,1,1,1
