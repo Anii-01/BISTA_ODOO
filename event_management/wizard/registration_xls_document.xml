@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Wizard View Definition -->
+        <record id="view_event_registration_report_wizard" model="ir.ui.view">
+            <field name="name">event.registration.report.wizard.form</field>
+            <field name="model">event.registration.report.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Event Registration Report">
+                    <group>
+                        <field name="start_date" />
+                        <field name="end_date" />
+                    </group>
+                    <footer>
+                        <button string="Print XLS Report" type="object" name="generate_xls_report"
+                            class="btn-primary" />
+                        <button string="Cancel" type="object" special="cancel" class="btn-secondary" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for Wizard -->
+        <record id="action_event_registration_report_wizard" model="ir.actions.act_window">
+            <field name="name">Event Registration Report Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">event.registration.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

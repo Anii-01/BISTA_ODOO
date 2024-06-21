@@ -1,37 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="event_management_organiser_tree_view" model="ir.ui.view">
-        <field name="name">event.management.organiser.tree</field>
-        <field name="model">event.organiser</field>
-        <field name="arch" type="xml">
-            <tree>
-                <field name="name" />
-                <field name="email" />
-                <field name="phone" />
-            </tree>
-        </field>
-    </record>
+    <data>
+        <record id="view_event_organizer_form" model="ir.ui.view">
+            <field name="name">event.organizer.form</field>
+            <field name="model">event.organizer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="email" />
+                            <field name="phone" />
+                            <field name="user_id" />
+                            <field name="event_ids" widget="many2many_tags" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <record id="event_management_organiser_form_view" model="ir.ui.view">
-        <field name="name">event.management.organiser.form</field>
-        <field name="model">event.organiser</field>
-        <field name="arch" type="xml">
-            <form>
-                <sheet>
-                    <group>
-                        <field name="name" />
-                        <field name="email" />
-                        <field name="phone" />
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
+        <record id="view_event_organizer_tree" model="ir.ui.view">
+            <field name="name">event.organizer.tree</field>
+            <field name="model">event.organizer</field>
+            <field name="arch" type="xml">
+                <tree>
 
-    <record id="action_event_management_organiser" model="ir.actions.act_window">
-        <field name="name">Event Organiser</field>
-        <field name="res_model">event.organiser</field>
-        <field name="view_mode">tree,form</field>
-        <field name="view_id" ref="event_management_organiser_tree_view" />
-    </record>
+                    <field name="name" />
+                    <field name="email" />
+                    <field name="phone" />
+                    <field name="user_id" />
+                    <field name="event_ids" />
+
+                </tree>
+            </field>
+        </record>
+        <record id="action_event_organizer" model="ir.actions.act_window">
+            <field name="name">Event Organizer</field>
+            <field name="res_model">event.organizer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_event_organizer_tree" />
+        </record>
+    </data>
 </odoo>

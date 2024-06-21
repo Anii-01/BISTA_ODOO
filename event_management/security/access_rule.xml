@@ -1,0 +1,52 @@
+<odoo>
+    <!-- Access Control Rules -->
+    <record id="access_event_manager" model="ir.model.access">
+        <field name="name">Event Manager</field>
+        <field name="model_id" ref="model_event_event" />
+        <field name="group_id" ref="group_event_manager" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="1" />
+        <field name="perm_unlink" eval="1" />
+    </record>
+
+    <record id="access_event_organizer" model="ir.model.access">
+        <field name="name">Organizer</field>
+        <field name="model_id" ref="model_event_event" />
+        <field name="group_id" ref="group_event_organizer" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+    <record id="access_event_registration_organizer" model="ir.model.access">
+        <field name="name">Organizer Registration</field>
+        <field name="model_id" ref="model_event_registrations" />
+        <field name="group_id" ref="group_event_organizer" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="1" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+    <record id="access_event_attendee" model="ir.model.access">
+        <field name="name">Attendee</field>
+        <field name="model_id" ref="model_event_event" />
+        <field name="group_id" ref="group_event_attendee" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="0" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+
+    <record id="access_event_registration_attendee" model="ir.model.access">
+        <field name="name">Attendee Registration</field>
+        <field name="model_id" ref="model_event_registrations" />
+        <field name="group_id" ref="group_event_attendee" />
+        <field name="perm_read" eval="1" />
+        <field name="perm_write" eval="0" />
+        <field name="perm_create" eval="0" />
+        <field name="perm_unlink" eval="0" />
+    </record>
+</odoo>

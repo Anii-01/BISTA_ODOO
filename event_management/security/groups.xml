@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Event Manager Group -->
+    <record id="group_event_manager" model="res.groups">
+        <field name="name">Event Manager</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_erp_manager'))]" />
+    </record>
+
+    <!-- Organizer Group -->
+    <record id="group_event_organizer" model="res.groups">
+        <field name="name">Organizer</field>
+        <field name="implied_ids" eval="[(4, ref('group_event_manager'))]" />
+    </record>
+
+    <!-- Attendee Group -->
+    <record id="group_event_attendee" model="res.groups">
+        <field name="name">Attendee</field>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
+    </record>
+
+
+</odoo>

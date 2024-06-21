@@ -1,0 +1,60 @@
+<odoo>
+    <data>
+        <record id="view_event_event_form" model="ir.ui.view">
+            <field name="name">event.event.form</field>
+            <field name="model">event.event</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div name="button_box">
+
+                            <button class="oe_stat_button" name="action_view_attendees" type="object" icon="fa-usd">
+                                <field name="attendee_count" />
+                            </button>
+
+                        </div>
+
+                        <group>
+                            <field name="name" />
+                            <field name="description" />
+                            <field name="start_date" widget="date" />
+                            <field name="end_date" widget="date" />
+                            <field name="organizer_id" />
+                            <field name="attendee_ids" widget="many2many_tags" />
+                            <field name="duration" />
+                            <field name="portal_user"/>
+                            <field name="state"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_event_event_tree" model="ir.ui.view">
+            <field name="name">event.event.tree</field>
+            <field name="model">event.event</field>
+            <field name="arch" type="xml">
+                <tree>
+
+                    <field name="name" />
+                    <field name="description" />
+                    <field name="start_date" widget="date" />
+                    <field name="end_date" widget="date" />
+                    <field name="organizer_id" />
+                    <field name="attendee_ids" />
+                    <field name="duration" />
+                    <field name="portal_user"/>
+                    <field name="state"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_event_event" model="ir.actions.act_window">
+            <field name="name">Event</field>
+            <field name="res_model">event.event</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_event_event_tree" />
+        </record>
+    </data>
+</odoo>

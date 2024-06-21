@@ -1,32 +1,27 @@
-from odoo import fields , models, api 
+from odoo import models, fields, api
 
-class Event_Attendee(models.Model):
-    _name='event.attendee'
-    _description = "This handles the event attendee of company"
+class EventAttendee(models.Model):
+    _name = 'event.attendee'
+    _description = 'Attendee'
 
-    name = fields.Char(string="Name", required=True)
-    email = fields.Char(string="Email", required=True)
+    name = fields.Char(string='Name', required=True)
+    email = fields.Char(string='Email')
 
-    phone = fields.Char(string="Phone")
+    phone = fields.Char(string='Phone')
 
-    user_id = fields.Many2one('res.users', string="User", compute='_compute_user_id', store=True, readonly=True)
+    user_id = fields.Many2one('res.users', string='User', readonly=True)
 
-    event_ids = fields.Many2many('event.event', 'event_registration', 'attendee_id', 'event_id', string="Events")
+    event_ids = fields.Many2many('event.event', 'event_registration', 'attendee_id', 'event_id', string='Events')
 
-    @api.depends('email')
-    def _compute_user_id(self):
-        for record in self:
-            existing_user = self.env['res.users'].search([('email', '=', record.email)])
+    @api.model
+    def create(self, vals):
+        user_vals = {
+            'name': vals.get('name'),
+            'login': vals.get('email'),
+            'email': vals.get('email'),
+        }
+        user = self.env['res.users'].create(user_vals)
+        vals['user_id'] = user.id
+        return super(EventAttendee, self).create(vals)
 
-            if existing_user:
-                record.user_id = existing_user.id
-            else:
-                # Create new user 
-                new_user_vals = {
-                    'name': record.name,
-                    'login': record.email,  
-                    'email': record.email,
-                    'groups_id': [(6, 0, [])], 
-                }
-                new_user = self.env['res.users'].create(new_user_vals)
-                record.user_id = new_user.id   
+

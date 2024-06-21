@@ -1,0 +1,31 @@
+<odoo>
+    <data>
+
+
+        <menuitem id="menu_event_management_root" name="Event Management">
+
+            <menuitem id="menu_event_management" name="Event Management">
+
+                <menuitem id="menu_event_event" name="Event" action="action_event_event"
+                    sequence="10" />
+
+                <menuitem id="menu_event_attendee" name="Event Attendeee"
+                    action="action_event_attendee" sequence="20" />
+
+                <menuitem id="menu_event_organizer" name="Event Organizer"
+                    action="action_event_organizer" sequence="30" />
+
+                <menuitem id="menu_event_registration" name="Event Registration"
+                    action="action_event_registration"
+                    sequence="40" />
+
+                <menuitem id="menu_registration_report" name="Registration Report"
+                    action="action_event_registration_report_wizard"
+                    sequence="50" />
+
+            </menuitem>
+        </menuitem>
+
+    </data>
+
+</odoo>

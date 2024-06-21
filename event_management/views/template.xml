@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="events" name="Events">
+        <t t-call="website.layout">
+            Hey
+        </t>
+    </template>
+</odoo>

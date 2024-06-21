@@ -23,6 +23,5 @@
         <field name="view_mode">form</field>
         <field name="view_id" ref="salespersons_wizard_form_view" />
         <field name="target">new</field>
-
     </record>
 </odoo>

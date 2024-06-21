@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- template for events -->
+
+    <template id="report_generate_event">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure" />
+                        <h1 class="mt-4">
+                            <th>Event Name : </th>
+                            <span t-field="doc.name" />
+                        </h1>
+
+                        <div class="col-auto col-3 mw-100 mb-2"
+                            name="informations_date">
+                            <strong>Start Date:</strong>
+                            <p class="m-0" t-field="doc.start_date"
+                                t-options='{"widget": "date"}' />
+                        </div>
+                        <div class="col-auto col-3 mw-100 mb-2"
+                            name="informations_date">
+                            <strong>End Date:</strong>
+                            <p class="m-0" t-field="doc.end_date"
+                                t-options='{"widget": "date"}' />
+                        </div>
+
+                        <div class="col-auto col-3 mw-100 mb-2"
+                            name="informations_attendee_id">
+                            <strong>Attendee Name:</strong>
+                            <p class="m-0" t-field="doc.attendee_ids" />
+                        </div>
+                        <div class="col-auto col-3 mw-100 mb-2"
+                            name="informations_state">
+                            <strong>State:</strong>
+                            <p class="m-0" t-field="doc.state" />
+                        </div>
+
+                        <p>*Terms and Conditions Applied</p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="report_generate_event_details" model="ir.actions.report">
+        <field name="name">Print Event Details</field>
+        <field name="model">event.event</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">event_management.report_generate_event</field>
+        <field name="report_file">event_management.report_generate_event</field>
+        <field name="print_report_name">'Event - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_event_registrations"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
