@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="om_hospital_report_optional_product" model="ir.actions.report">
+        <field name="name">Print Optional Products</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">om_hospital.report_optional_product_template</field>
+        <field name="report_file">om_hospital.report_optional_product_template</field>
+        <field name="binding_model_id" ref="model_sale_order" />
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <!-- Server action -->
+    <record id="om_hospital_xls_report_print" model="ir.actions.server">
+        <field name="name">Print XLS</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_sale_order" />
+        <field name="binding_model_id" ref="model_sale_order" />
+        <field name="state">code</field>
+        <field name="code">action = model.action_export_sale_order_xls()</field>
+    </record>
+    
+</odoo>

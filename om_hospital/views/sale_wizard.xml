@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale.wizard.inherit" model="ir.ui.view">
+        <field name="name">model.extend.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="confirm_user_id"/>
+                    <header>
+                        <button name="check_orm" string="Check ORM" type="object" class="oe_highlight"/>
+                    </header>
+                </xpath>
+            </data>
+        </field>
+    </record>
+    
+</odoo>

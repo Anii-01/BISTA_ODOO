@@ -1,0 +1,90 @@
+<odoo>
+    <record id="view_product_manufacturer_form" model="ir.ui.view">
+        <field name="name">product.manufacturer.form</field>
+        <field name="model">product.manufacturer</field>
+        <field name="arch" type="xml">
+            <form string="Product Manufacturer">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="street_name"/>
+                        <field name="building"/>
+                        <field name="floor_room_number"/>
+                        <field name="street2"/>
+                        <field name="city"/>
+                        <field name="zip"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="state_id"/>
+                        <field name="country_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_product_manufacturer_tree" model="ir.ui.view">
+        <field name="name">product.manufacturer.tree</field>
+        <field name="model">product.manufacturer</field>
+        <field name="arch" type="xml">
+            <tree string="Product Manufacturer">
+                <field name="name"/>
+                <field name="city"/>
+                <field name="country_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_product_manufacturer_kanban" model="ir.ui.view">
+        <field name="name">product.manufacturer.kanban</field>
+        <field name="model">product.manufacturer</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                    
+                        <div class="oe_kanban_card">
+                            <div class="oe_kanban_content">
+                                <!-- Example: Displaying the name field -->
+                                <div>
+                                    <field name="name" />
+                                </div>
+                                <div>
+                                    <field name="city" />
+                                </div>
+                                <div>
+                                    <field name="country_id" />
+                                </div>
+                                <div>
+                                    <field name="building" />
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_product_manufacturer_search" model="ir.ui.view">
+        <field name="name">product.manufacturer.search</field>
+        <field name="model">product.manufacturer</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="country_id"/>
+                <field name="city"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_product_manufacturer" model="ir.actions.act_window">
+        <field name="name">Manufacturers</field>
+        <field name="res_model">product.manufacturer</field>
+        <field name="view_id" ref="view_product_manufacturer_tree" />
+        <field name="view_mode">tree,form,kanban,search</field>
+    </record>
+
+</odoo>

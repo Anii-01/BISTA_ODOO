@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_patient_card" model="ir.actions.report">
+        <field name="name">Patient Card</field>
+        <field name="model">hospital.patient</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">om_hospital.report_patient</field>
+        <field name="report_file">om_hospital.report_patient</field>
+        <field name="binding_model_id" ref="model_hospital_patient"/>
+        <field name="binding_type">report</field>
+    </record>
+    
+
+    <record id="action_report_patient_card" model="ir.actions.server">
+        <field name="name">Print Patient Card</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_hospital_patient"/>
+        <field name="state">code</field>
+        <field name="code">action = env.ref('om_hospital.report_patient').report_action(docids)</field>
+    </record>
+
+    <record model="ir.ui.view" id="view_hospital_patient_form_inherit">
+        <field name="name">hospital.patient.form.inherit</field>
+        <field name="model">hospital.patient</field>
+        <field name="inherit_id" ref="om_hospital.view_hospital_patient_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//form" position="inside">
+                    <footer>
+                        <button name="%(action_report_patient_card)d" string="Print Patient Card" type="action"/>
+                    </footer>
+                </xpath>
+            </data>
+        </field>
+    </record>
+    
+</odoo>

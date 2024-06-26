@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+    <record id="product_style_tree_view" model="ir.ui.view">
+        <field name="name">product.style.tree</field>
+        <field name="model">product.style</field>
+        <field name="arch" type="xml">
+            <tree editable="top">
+                <field name="name" />
+                <field name="code" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="product_style_search_view" model="ir.ui.view">
+        <field name="name">product.style.search</field>
+        <field name="model">product.style</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" />
+                <field name="code" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_product_style_form" model="ir.actions.act_window">
+        <field name="name">Product Style</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.style</field>
+        <field name="view_mode">tree,search</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new BACS Direct Debit Instruction.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,24 @@
+<!-- data/day_of_week_data.xml -->
+<odoo>
+    <record id="day_sunday" model="customer_inherit.dayofweek">
+        <field name="name">Sunday</field>
+    </record>
+    <record id="day_monday" model="customer_inherit.dayofweek">
+        <field name="name">Monday</field>
+    </record>
+    <record id="day_tuesday" model="customer_inherit.dayofweek">
+        <field name="name">Tuesday</field>
+    </record>
+    <record id="day_wednesday" model="customer_inherit.dayofweek">
+        <field name="name">Wednesday</field>
+    </record>
+    <record id="day_thursday" model="customer_inherit.dayofweek">
+        <field name="name">Thursday</field>
+    </record>
+    <record id="day_friday" model="customer_inherit.dayofweek">
+        <field name="name">Friday</field>
+    </record>
+    <record id="day_saturday" model="customer_inherit.dayofweek">
+        <field name="name">Saturday</field>
+    </record>
+</odoo>

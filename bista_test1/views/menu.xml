@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_product_manufacturer_root"
+        name="Product Manufacturers"
+        sequence="20" />
+
+    <menuitem id="menu_product_manufacturer"
+        name="Manufacturers"
+        parent="menu_product_manufacturer_root"
+        action="action_product_manufacturer" />
+
+</odoo>

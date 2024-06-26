@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- <data noupdate="1">
+        <record id="product_style_rule_admin" model="ir.rule">
+            <field name="name">Product Style Create Rule for Purchase Admins</field>
+            <field name="model_id" ref="model_product_style"/>
+            <field name="groups" eval="[(4, ref('purchase.group_purchase_manager'))]"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_unlink" eval="True"/>
+            <field name="perm_read" eval="True"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+        </record>
+    </data> -->
+
+    
+</odoo>

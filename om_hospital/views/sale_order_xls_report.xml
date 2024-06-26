@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_xls_report_inherit" model="ir.ui.view">
+        <field name="name">sale.order.xls.report.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//button[@name='action_confirm']" position="after">
+                    <header>
+                        <button name="generate_excel_product" string="Generate XLS" type="object" class="oe_highlight"/>
+                    </header>
+                </xpath>
+            </data>
+        </field>
+    </record>
+</odoo>

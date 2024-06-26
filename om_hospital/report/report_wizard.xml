@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="om_hospital_report_wizard" model="ir.actions.report">
+        <field name="name">Print Wizard</field>
+        <field name="model">appointment.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">om_hospital.report_customer</field>
+        <field name="report_file">om_hospital.report_customer</field>
+        <field name="binding_model_id" ref="model_appointment_report_wizard" />
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

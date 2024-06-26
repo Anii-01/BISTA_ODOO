@@ -1,0 +1,9 @@
+
+from.import product_style
+from.import sale_order_line_inherit
+from.import product_template
+from.import customer_inherit
+from.import customer_rating
+from.import customer_filter
+from.import create_inherit_for_mail
+from.import crm_action_button

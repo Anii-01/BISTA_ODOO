@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="inherit_report_custom_invoice" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@class='row mt-4 mb-4']" position="inside">
+            <div class="col-auto col-3 mw-100 mb-2"
+                t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'"
+                name="sales_person">
+                <strong>Sales Person:</strong>
+                <p class="m-0" t-field="o.invoice_user_id.name"/>
+            </div>
+            <div class="col-auto col-3 mw-100 mb-2"
+                t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'"
+                name="sales_team">
+                <strong>Sales Team:</strong>
+                <p class="m-0" t-field="o.team_id.name"/>
+            </div>
+        </xpath>
+        <xpath expr="//table[@class='table table-sm o_main_table table-borderless']/tbody"
+            position="after">
+            <tfoot>
+                <tr>
+                    <td colspan="99" class="text-end">
+                        <strong>Total Items:</strong>
+                        <span t-esc="len(o.invoice_line_ids)" />
+                    </td>
+                </tr>
+            </tfoot>
+        </xpath>
+    </template>
+</odoo>

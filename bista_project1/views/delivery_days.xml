@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="delivery_days_form_inherit" model="ir.ui.view">
+        <field name="name">model.extend.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="day_ids" widget="many2many_tags"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+
+      <!--sale order inherit-->
+      <record id="delivery_day_form_inherit" model="ir.ui.view">
+        <field name="name">model.extend.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='Customer_Country']" position="after">
+                    <field name="delivery_day"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+    <record id="customer_type_form_inherit" model="ir.ui.view">
+        <field name="name">model.extend.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='day_ids']" position="after">
+                    <field name="customer_id"/>
+                </xpath>
+            </data>
+        </field>
+    </record>
+
+</odoo>

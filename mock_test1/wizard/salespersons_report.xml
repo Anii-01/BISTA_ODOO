@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="salespersons_wizard_form_view" model="ir.ui.view">
+        <field name="name">salespersons.wizard.form.view</field>
+        <field name="model">salespersons.report</field>
+        <field name="arch" type="xml">
+            <form string="Create new wizard">
+                <group>
+                    <field name="internal_users" widget="many2many_tags" />
+                </group>
+                <footer>
+                    <button name="show_orders" string="Show Orders" type="object" class="btn-primary" />
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_salespersons_report" model="ir.actions.act_window">
+        <field name="name">Internal users</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">salespersons.report</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="salespersons_wizard_form_view" />
+        <field name="target">new</field>
+
+    </record>
+</odoo>

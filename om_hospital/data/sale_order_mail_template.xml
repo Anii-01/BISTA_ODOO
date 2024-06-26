@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="email_template_custom_sale_order" model="mail.template">
+            <field name="name">Custom Sale Order Email</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="subject">Order Confirmation - ${{object.name}}</field>
+            <field name="email_from">aniphand21@gmail.com</field>
+            <field name="description">Sent email...</field>
+            <!-- <field name="email_to">${object.partner_id.email|safe}</field> -->
+            <field name="email_to">aniketphand21@gmail.com</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear, <t t-out="object.partner_id.name"/>
+                        <br/>
+                        <!-- Include customer image if available -->
+                        <t t-if="object.partner_id.image_1920">
+                            <img t-att-src="'/web/image/res.partner/%d/image_1920/' % object.partner_id.id" alt="Customer Image" style="max-width: 100px;"/>
+                        </t>
+                        <br/>
+                        here is your sale order details
+                        <br></br> <t
+                        t-set="modified_name" t-value="object.name[1:]" /> 
+                        Quotation Number: 
+                    <a
+                        t-att-href="'http://localhost:8069/my/orders/' + modified_name">
+                        <t t-esc="object.name" />
+                    </a>
+                        <br/>
+                        order No. is  : <t t-out="object.name"/>
+                        <br/>
+                    </p>
+
+                    <!-- Table for displaying order line details -->
+                    <table border="1" cellpadding="5" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Unit Price</th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="object.order_line" t-as="line">
+                                <tr>
+                                    <td><t t-out="line.product_id.display_name"/></td>
+                                    <td><t t-out="line.product_uom_qty"/></td>
+                                    <td><t t-out="line.price_unit"/></td>
+                                    <td><t t-out="line.price_subtotal"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <p>if you have queries feel free to ask</p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

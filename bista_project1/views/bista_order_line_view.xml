@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.ui.view" id="bista_order_line_form">
+        <field name="name">bista.order.line.form</field>
+        <field name="model">bista.employee</field>
+        <field name="arch" type="xml">
+            <form string="Bista Order Line">
+                <header>
+                    <button name="action_approve" type="object" string="Approve"
+                        class="btn btn-primary" />
+                    <field name='state' widget="statusbar" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" widget="res_partner_many2one" />
+                    </group>
+                    <notebook>
+                        <page string="Order Lines" name="order_lines">
+                            <field name="order_line" widget="section_and_note_one2many"
+                                mode="tree">
+                                <form>
+                                    <group>
+                                        <field name="user_id" widget="many2one" />
+                            
+                                    </group>
+                                </form>
+                                <tree editable="bottom">
+                                    <field name="user_id" widget="many2one" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="bista_order_line_tree" model="ir.ui.view">
+        <field name="name">bista.order.line.tree</field>
+        <field name="model">bista.employee</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="user_id" />
+                <field name="emp_role" />
+                <field name="gender" />
+
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_bista_order_line" model="ir.actions.act_window">
+        <field name="name">Employee Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bista.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new BACS Direct Debit Instruction.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_bista_order_line"
+        name="Bista Order Line"
+        parent="menu_bista_employee"
+        action="action_bista_order_line"
+        sequence="2" />
+
+</odoo>

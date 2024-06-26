@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_bista_project1_root"
+        name="Bista Solutions"
+        web_icon = "bista_project1,static/description/icon.png/"
+        sequence="20"/>
+
+    <!-- <menuitem id="menu_bista_employee"
+        name="Employees"
+        parent="menu_bista_project1_root"
+        sequence="10" /> -->
+
+    <!-- <menuitem id="menu_bista_employee_details"
+        name="Employee Details"
+        parent="menu_bista_employee"
+        action="bista_project1.action_bista_employee"
+        sequence="5" />
+
+    <menuitem id="menu_action_create_wizard" 
+        name="Test Wizard" 
+        parent="menu_bista_employee_details" 
+        action="action_create_wizard"
+        sequence="2" /> -->
+
+
+</odoo>

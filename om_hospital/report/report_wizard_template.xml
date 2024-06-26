@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_customer">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure">
+                        <div class="text-center">
+                            <h1>Customer Information</h1>
+                        </div>
+                    </div>
+                    <div class="oe_structure" />
+                    <h4 class="mt-4">
+                        <th>Customer Name: </th>
+                        <span t-esc="form['customer_id'][1]" />
+                    </h4>
+                    <div class="col-auto col-3 mw-100 mb-2">
+                        <strong>Date From:</strong>
+                        <p class="m-0" t-esc="form['date_from']" t-options='{"widget": "date"}' />
+                    </div>
+                    <div class="col-auto col-3 mw-100 mb-2">
+                        <strong>Date To:</strong>
+                        <p class="m-0" t-esc="form['date_to']" t-options='{"widget": "date"}' />
+                    </div>
+                    <h2>Orders Details</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Order Date</th>
+                                <th>Description</th>
+                                <th>Total Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="quotations" t-as="object">
+                                <td>
+                                    <t t-esc="object['create_date']" t-options='{"widget": "date"}' />
+                                </td>
+                                <td>
+                                    <t t-esc="object['name']" />
+                                </td>
+                                <td>
+                                    <t t-esc="object['amount_untaxed']" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

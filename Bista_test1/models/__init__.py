@@ -1,2 +1,0 @@
-from.import Product_Style
-from.import Customer_Rating

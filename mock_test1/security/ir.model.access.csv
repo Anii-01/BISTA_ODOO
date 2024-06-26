@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+mock_test1.access_product_style,access_product_style,mock_test1.model_product_style,purchase.group_purchase_manager,1,1,1,0
+mock_test1.access_salespersons_report,access_salespersons_report,mock_test1.model_salespersons_report,base.group_user,1,1,1,1

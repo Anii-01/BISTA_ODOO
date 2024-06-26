@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="filter_products_view_form_inherit" model="ir.ui.view">
+        <field name="name">filter.products.view.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='property_product_pricelist']" position="after">
+
+                <field name="filter_pricelist"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- tree view -->
+    <record id="view_hospital_appointment_tree" model="ir.ui.view">
+        <field name="name">hospital.appointment.tree</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="patient_id" />
+                <field name="doctor_id" />
+                <field name="appointment_date" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- form view -->
+    <record id="view_hospital_appointment_form" model="ir.ui.view">
+        <field name="name">hospital.appointment.form</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="priority" widget="priority" class="mr-3"/>
+                        </h1>
+
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="patient_id"/>
+                        <field name="doctor_id"/>
+                        <field name="appointment_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+   
+
+
+
+    <!-- calandar view -->
+    <record id="view_hospital_appointment_calendar" model="ir.ui.view">
+        <field name="name">hospital.appointment.calendar</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <calendar string="Hospital Appointments" date_start="appointment_date" mode="month">
+                <field name="name" />
+                <field name="doctor_id" />
+                <field name="patient_id" />
+                <field name="appointment_date" />
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Kanban view -->
+    <record id="view_hospital_appointment_kanban" model="ir.ui.view">
+        <field name="name">hospital.appointment.kanban</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <templates>
+                    <t t-name="kanban-box">
+                    
+                        <div class="oe_kanban_card">
+                            <div class="oe_kanban_content">
+                                <!-- Example: Displaying the name field -->
+                                <div>
+                                    <field name="name" />
+                                </div>
+                                <div>
+                                    <field name="doctor_id" />
+                                </div>
+                                <div>
+                                    <field name="patient_id" />
+                                </div>
+                                <div>
+                                    <field name="appointment_date" />
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <!-- Graph view -->
+    <record model="ir.ui.view" id="example_graph_view">
+        <field name="name">example.graph</field>
+        <field name="model">hospital.appointment</field>
+        <field name="arch" type="xml">
+            <graph string="Hospital Data" type="bar">
+                <field name="appointment_date" type="row"/>
+                <field name="name" type="row"/>
+            </graph>
+        </field>
+    </record>
+    
+
+    <!-- Actions -->
+    <record id="action_hospital_appointment_calendar" model="ir.actions.act_window">
+        <field name="name">Appointment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.appointment</field>
+        <field name="view_mode">calendar,kanban,graph,tree,form</field>
+        <field name="view_id" ref="view_hospital_appointment_tree" />
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new BACS Direct Debit Instruction.
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sale_order_wizard_report_form" model="ir.ui.view">
+        <field name="name">view_sale_order_wizard_report_form</field>
+        <field name="model">appointment.report.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="customer_id"/>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+
+                </group>
+                <footer>
+                    <button name="action_print_report" type="object" string="Print PDF Report" class="btn-primary"/>
+                    <button name="action_print_excel" type="object" string="Print XLS Report" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sale_order_wizard_report" model="ir.actions.act_window">
+        <field name="name">sale order report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">appointment.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name= "view_id" ref="view_sale_order_wizard_report_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_reporting"
+        name = "Customer Reporting"
+        action = "action_sale_order_wizard_report"
+        parent = "sale.sale_menu_root"
+        sequence = "70"
+    />
+
+</odoo>

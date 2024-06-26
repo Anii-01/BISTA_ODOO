@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+bista_project1.access_bista_employee,access_bista_employee,bista_project1.model_bista_employee,base.group_user,1,1,1,1
+bista_project1.access_test_wizard,access_test_wizard,bista_project1.model_test_wizard,base.group_user,1,1,1,1
+
+bista_project1.access_customer_inherit_dayofweek,access_customer_inherit_dayofweek,bista_project1.model_customer_inherit_dayofweek,base.group_user,1,1,1,1

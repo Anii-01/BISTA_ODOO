@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_bista_employee_form" model="ir.ui.view">
+        <field name="name">view.bista.employee.form</field>
+        <field name="model">bista.employee</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- <button name="%(bista_project1.action_create_wizard)d" string="Open Wizard1" 
+                    context = "{'default_name':active_id}"
+                    type="action" class="oe_highlight"/>  -->
+                    <button name="action_create_wizard_from_button" string="Open Wizard2" type="object" class="oe_highlight"/>
+                    <button name="action_sold" type="object" string="Sold" class="btn btn-primary"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="btn btn-danger"/>
+                    <field  name="state" widget="statusbar" />  
+
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="user_id"/>
+                        <field name="emp_role"/>
+                        <field name="gender"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_bista_employee_tree" model="ir.ui.view">
+        <field name="name">view.bista.employee.tree</field>
+        <field name="model">bista.employee</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="emp_role"/>
+                <field name="gender"/> 
+                        
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_bista_employee" model="ir.actions.act_window">
+        <field name="name">Employee Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bista.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new BACS Direct Debit Instruction.
+            </p>
+        </field>
+    </record>
+
+</odoo>
