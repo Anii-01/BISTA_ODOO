@@ -1,0 +1,37 @@
+orcale 
+accounting
+
+login - email, password
+neitsuit logo click
+global search bar
+portlets
+suit apps
+suits bundle
+*Neit Suit = product - role based erp - cloud based - not a software
+
+role changed - central changed
+
+personalised dash board
+SAP - Netsuit 
+subsidiary
+
+
+modules - procure to pay module  and order to cash -   for technical part
+KPI meter
+
+------------------------------------------------------------------------
+1998, firsy cloud based , role based erp , product ...
+overview of netsuit..
+which modules provide by erp..
+what netsuit ?
+how it is differ from others erp?
+
+task2 - portlets
+portlets----
+
+fields- customize(prefix) and standard
+
+
+
+
+
